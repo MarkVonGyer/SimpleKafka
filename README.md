@@ -14,3 +14,11 @@ Any other exceptions raised will result in the retry behavour being followed. Ea
 
 ![alt text](https://github.com/MarkVonGyer/SimpleKafka/blob/main/Resources/Retry_Behaviour.png?raw=true)
 
+# Batch Processing
+Simple Kafka allows you to process messages in batches for efficiency. Failure to process any message in the batch will result in the batch passing through the retry behaviour you have configured. It is important therefore to ensure that you handle custom Exceptions within your processing code appropriately (eg, if only 1 record fails in a batch of 100 you should publish that 1 to the retry/ deadletter topic to allow the remainder of the batch to process succesfully). Due to this behaviour it is possible for a batch processer to rerun messages, so ensure your system can handle duplicates if you opt for the batch processor.
+
+# Auto Topic Creation
+By default Kafka will allow you to create topics that don't exist by attempting to push a message to a new topic. The issue with this is that it will use the cluster's default partition count and replication factor, which may not suit your needs. Simple Kafka allows you to set those values at a topic level, so that if a topic does not exist it will be created with the desired settings.
+
+# JSON serialiser
+By default Simple Kafka will use the Newtonsoft JSON serialiser to serialise and deserialise messages. Newtonsoft is forgiving when it comes to missing fields and mismatching data types (eg string to int). You can override this to use your own serialser.
