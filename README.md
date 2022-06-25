@@ -5,4 +5,4 @@ An open source library designed to make it easy to work with Kafka in .NET Core
 Mark VonGyer,
 Marin Dimitrov
 
-![alt text](https://github.com/MarkVonGyer/SimpleKafka/blob/main/resources/Retry_Behaviour.png?raw=true)
+![alt text](https://github.com/MarkVonGyer/SimpleKafka/Resources/Retry_Behaviour.png?raw=true)
