@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleKafka.Configuration
 {
-    public enum OffsetResetValues
+    public record BaseConfiguration
     {
-        Latest,
-        Earliest,
-        Error
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Confluent.Kafka;
 
 namespace SimpleKafka.Configuration;
-public record KafkaConfiguration
+public record KafkaConfiguration : BaseConfiguration
 {
     private readonly string? _bootstrapServers;
     private readonly OffsetResetValues _offsetResetValues = OffsetResetValues.Latest;
